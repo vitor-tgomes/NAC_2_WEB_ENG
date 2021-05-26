@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
-<title>Cadastro Convidados</title>
+<title>Cadastro Intenções</title>
 <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
 	rel="stylesheet" />
 <link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
@@ -14,17 +14,35 @@
 <body>
 	<div class="panel panel-default" style="margin: 10px">
 		<div class="panel-heading">
-			<h1 class="panel-title">Lista de convidados</h1>
+			<h1 class="panel-title">Lista de Intenções</h1>
 		</div>
 		<div class="panel-body">
 			<form class="form-inline" method="POST" th:object="${convidadoDto}"
 				th:action="@{/convidados/salvar}" style="margin: 20px 0">
 				<div class="form-group">
 					<input type="text" class="form-control" placeholder="Nome"
-						th:field="*{nome}" /> <input type="text" class="form-control"
+						th:field="*{nome}" /><input type="text" class="form-control"
 						placeholder="E-mail" th:field="*{email}" /> <input type="text"
-						class="form-control" placeholder="Acompanhantes"
-						th:field="*{acompanhantes}" />
+						class="form-control" placeholder="endereco" th:field="*{endereco}" /><input
+						type="text" class="form-control" placeholder="numero"
+						th:field="*{numero}" /><input type="text" class="form-control"
+						placeholder="cidade" th:field="*{cidade}" /><input type="text"
+						class="form-control" placeholder="estado" th:field="*{estado}" /><input
+						type="text" class="form-control" placeholder="cep"
+						th:field="*{cep}" /><input type="text" class="form-control"
+						placeholder="cpf" th:field="*{cpf}" /><input type="text"
+						class="form-control" placeholder="rg" th:field="*{rg}" /><input
+						type="text" class="form-control" placeholder="datanascimento"
+						th:field="*{datanascimento}" /><input type="text"
+						class="form-control" placeholder="telresidencial"
+						th:field="*{telresidencial}" /><input type="text"
+						class="form-control" placeholder="celular" th:field="*{celular}" /><input
+						type="text" class="form-control" placeholder="tipfinan"
+						th:field="*{tipfinan}" /><input type="text" class="form-control"
+						placeholder="quantparc" th:field="*{quantparc}" /><input
+						type="text" class="form-control" placeholder="valint"
+						th:field="*{valint}" /><input type="text" class="form-control"
+						placeholder="salario" th:field="*{salario}" />
 					<button type="submit" class="btn btn-primary">Adicionar</button>
 				</div>
 			</form>
@@ -32,8 +50,9 @@
 				<thead>
 					<tr>
 						<th>Nome</th>
-						<th>E-mail</th>
-						<th>Acompanhantes</th>
+						<th>Tipo Financiamento</th>
+						<th>Valor Intenção</th>
+						<th>Quantidade Parcelamento</th>
 						<th>Acões</th>
 
 					</tr>
@@ -41,13 +60,18 @@
 				<tbody>
 					<tr th:each="convidado : ${convidados}">
 						<td th:text="${convidado.nome}"></td>
-						<td th:text="${convidado.email}"></td>
-						<td th:text="${convidado.acompanhantes}"></td>
+						<td th:text="${convidado.tipfinan}"></td>
+						<td th:text="${convidado.valint}"></td>
+						<td th:text="${convidado.quantparc}"></td>
+
 						<td class="actions">
 							<form action="" method="get">
-								<a th:href="@{/convidados/detalhar/{id}(id = ${convidado.id}) }" class="btn btn-success">Detalhes</a>
-								<a th:href="@{/convidados/detalhar/{id}(id = ${convidado.id}) }" class="btn btn-warning">Editar</a>															 
-								<a th:href="@{/convidados/deletar/{id}(id = ${convidado.id}) }" class="btn btn-danger btn-xs">Excluir</a>								
+								<a th:href="@{/convidados/detalhar/{id}(id = ${convidado.id}) }"
+									class="btn btn-success">Detalhes</a> <a
+									th:href="@{/convidados/detalhar/{id}(id = ${convidado.id}) }"
+									class="btn btn-warning">Editar</a> <a
+									th:href="@{/convidados/deletar/{id}(id = ${convidado.id}) }"
+									class="btn btn-danger btn-xs">Excluir</a>
 							</form>
 						</td>
 					</tr>

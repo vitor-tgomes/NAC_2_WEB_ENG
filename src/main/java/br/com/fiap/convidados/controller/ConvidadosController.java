@@ -2,8 +2,11 @@ package br.com.fiap.convidados.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,8 +33,11 @@ public class ConvidadosController {
 	}
 	
 	@PostMapping("/salvar")
-	public String salvar(ConvidadoDto convidadoDto) {				
-		service.saveConvidado(convidadoDto);
+	public String salvar(@Valid ConvidadoDto convidadoDto, BindingResult result) {	
+		if(!result.hasErrors()) {
+			service.saveConvidado(convidadoDto);
+			return "redirect:/convidados/lista";
+		}
 		return "redirect:/convidados/lista";
 	}
 	

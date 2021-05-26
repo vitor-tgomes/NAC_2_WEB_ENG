@@ -50,8 +50,21 @@ public class ConvidadoServiceImpl implements ConvidadoService {
 			ConvidadoDto convidadoDto = new ConvidadoDto();
 			convidadoDto.setNome(entity.getNome());
 			convidadoDto.setEmail(entity.getEmail());
-			convidadoDto.setAcompanhantes(entity.getAcompanhantes());
+			convidadoDto.setEndereco(entity.getEndereco());
 			convidadoDto.setId(entity.getId());
+			convidadoDto.setNumero(entity.getNumero());
+			convidadoDto.setCidade(entity.getCidade());
+			convidadoDto.setCep(entity.getCep());
+			convidadoDto.setCpf(entity.getCpf());
+			convidadoDto.setRg(entity.getRg());
+			convidadoDto.setDatanascimento(entity.getDatanascimento());
+			convidadoDto.setTelresidencial(entity.getTelresidencial());
+			convidadoDto.setCelular(entity.getCelular());
+			convidadoDto.setTipfinan(entity.getTipfinan());
+			convidadoDto.setQuantparc(entity.getQuantparc());
+			convidadoDto.setValint(entity.getValint());
+			convidadoDto.setSalario(entity.getSalario());
+			
 			listaConvidadoDto.add(convidadoDto);
 		}		
 		return listaConvidadoDto;		
@@ -59,10 +72,23 @@ public class ConvidadoServiceImpl implements ConvidadoService {
 	
 	private ConvidadoDto fromConvidadeEntityToConvidadoDto(ConvidadoEntity convidadoEntity){		
 			ConvidadoDto convidadoDto = new ConvidadoDto();
+			
 			convidadoDto.setNome(convidadoEntity.getNome());
 			convidadoDto.setEmail(convidadoEntity.getEmail());
-			convidadoDto.setAcompanhantes(convidadoEntity.getAcompanhantes());
-			convidadoDto.setId(convidadoEntity.getId());				
+			convidadoDto.setEndereco(convidadoEntity.getEndereco());
+			convidadoDto.setId(convidadoEntity.getId());
+			convidadoDto.setNumero(convidadoEntity.getNumero());
+			convidadoDto.setCidade(convidadoEntity.getCidade());
+			convidadoDto.setCep(convidadoEntity.getCep());
+			convidadoDto.setCpf(convidadoEntity.getCpf());
+			convidadoDto.setRg(convidadoEntity.getRg());
+			convidadoDto.setDatanascimento(convidadoEntity.getDatanascimento());
+			convidadoDto.setTelresidencial(convidadoEntity.getTelresidencial());
+			convidadoDto.setCelular(convidadoEntity.getCelular());
+			convidadoDto.setTipfinan(convidadoEntity.getTipfinan());
+			convidadoDto.setQuantparc(convidadoEntity.getQuantparc());
+			convidadoDto.setValint(convidadoEntity.getValint());
+			convidadoDto.setSalario(convidadoEntity.getSalario());					
 		return convidadoDto;		
 	}
 
